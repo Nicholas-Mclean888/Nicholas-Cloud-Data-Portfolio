@@ -1,5 +1,3 @@
-# Nicholas-Cloud-Data-Portfolio
-A portfolio of cloud computing, data analytics, machine learning and IoT projects.
 # Cloud, Data and IoT Portfolio
 
 Welcome to my technology portfolio. This repository showcases projects involving AWS cloud architecture, data analytics, machine learning, Internet of Things (IoT), Python and Node-RED.
