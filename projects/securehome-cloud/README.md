@@ -1,4 +1,4 @@
-# SecureHome Cloud
+### 1. [SecureHome Cloud](projects/securehome-cloud/)
 
 SecureHome Cloud is a serverless e-commerce application designed for customers to browse and order home-security products. The project demonstrates how AWS managed services can be combined to create a secure, scalable and cost-conscious cloud solution.
 
