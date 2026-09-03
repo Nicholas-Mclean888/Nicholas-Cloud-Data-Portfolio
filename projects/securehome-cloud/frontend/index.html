@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="SecureHome Cloud demonstration store for smart home-security products."
+  >
+  <title>SecureHome Cloud | Smart Security Products</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#" aria-label="SecureHome Cloud home">
+        <span class="brand-icon" aria-hidden="true">SH</span>
+        <span>
+          <strong>SecureHome</strong>
+          <small>Cloud</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#products">Products</a>
+        <a href="#benefits">Why SecureHome?</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <button
+        class="cart-button"
+        id="cart-button"
+        type="button"
+        aria-controls="cart-panel"
+        aria-expanded="false"
+      >
+        Cart
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Connected protection for modern homes</p>
+          <h1>Smarter security.<br>Simple setup.</h1>
+          <p class="hero-description">
+            Discover practical home-security products designed to help you
+            monitor entrances, detect movement and respond with confidence.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-button" href="#products">Shop products</a>
+            <a class="secondary-button" href="#benefits">Learn more</a>
+          </div>
+
+          <ul class="trust-list" aria-label="Store benefits">
+            <li>Australian pricing</li>
+            <li>Secure checkout design</li>
+            <li>AWS serverless architecture</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="Secure connected home illustration">
+          <div class="security-orbit orbit-one"></div>
+          <div class="security-orbit orbit-two"></div>
+          <div class="home-card">
+            <span class="home-roof" aria-hidden="true"></span>
+            <span class="home-body" aria-hidden="true">
+              <span class="home-door"></span>
+              <span class="home-window"></span>
+            </span>
+            <span class="status-pill">
+              <span class="status-dot"></span>
+              All systems protected
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Featured collection</p>
+            <h2>Security essentials</h2>
+          </div>
+          <p>
+            A demonstration product catalogue for the SecureHome Cloud
+            portfolio project.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-visual camera-visual" aria-hidden="true">
+              <span>CAM</span>
+            </div>
+            <div class="product-content">
+              <p class="product-category">Cameras</p>
+              <h3>Smart Door Camera</h3>
+              <p>
+                Monitor your front entrance with motion alerts, night vision
+                and two-way communication.
+              </p>
+              <div class="product-footer">
+                <strong>$129.95</strong>
+                <button
+                  class="add-to-cart"
+                  type="button"
+                  data-product-id="camera-01"
+                  data-product-name="Smart Door Camera"
+                  data-product-price="129.95"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual sensor-visual" aria-hidden="true">
+              <span>SNS</span>
+            </div>
+            <div class="product-content">
+              <p class="product-category">Entry sensors</p>
+              <h3>Window and Door Sensor</h3>
+              <p>
+                Receive an alert whenever a protected door or window is opened.
+              </p>
+              <div class="product-footer">
+                <strong>$39.95</strong>
+                <button
+                  class="add-to-cart"
+                  type="button"
+                  data-product-id="sensor-01"
+                  data-product-name="Window and Door Sensor"
+                  data-product-price="39.95"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual motion-visual" aria-hidden="true">
+              <span>MD</span>
+            </div>
+            <div class="product-content">
+              <p class="product-category">Motion detection</p>
+              <h3>Smart Motion Detector</h3>
+              <p>
+                Detect unexpected movement with adjustable sensitivity and
+                instant notifications.
+              </p>
+              <div class="product-footer">
+                <strong>$54.95</strong>
+                <button
+                  class="add-to-cart"
+                  type="button"
+                  data-product-id="motion-01"
+                  data-product-name="Smart Motion Detector"
+                  data-product-price="54.95"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual hub-visual" aria-hidden="true">
+              <span>HUB</span>
+            </div>
+            <div class="product-content">
+              <p class="product-category">Control systems</p>
+              <h3>Smart Alarm Hub</h3>
+              <p>
+                Connect and manage compatible SecureHome sensors from one
+                central control hub.
+              </p>
+              <div class="product-footer">
+                <strong>$149.95</strong>
+                <button
+                  class="add-to-cart"
+                  type="button"
+                  data-product-id="hub-01"
+                  data-product-name="Smart Alarm Hub"
+                  data-product-price="149.95"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section" id="benefits">
+      <div class="container">
+        <div class="section-heading benefits-heading">
+          <div>
+            <p class="eyebrow">Designed with security in mind</p>
+            <h2>Why SecureHome Cloud?</h2>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <article>
+            <span class="benefit-number">01</span>
+            <h3>Serverless design</h3>
+            <p>
+              AWS managed services provide a scalable foundation without
+              permanent application servers.
+            </p>
+          </article>
+
+          <article>
+            <span class="benefit-number">02</span>
+            <h3>Protected customer access</h3>
+            <p>
+              Amazon Cognito will provide customer registration,
+              authentication and sign-in.
+            </p>
+          </article>
+
+          <article>
+            <span class="benefit-number">03</span>
+            <h3>Monitored and cost-aware</h3>
+            <p>
+              CloudWatch monitoring and AWS budget alerts support reliable,
+              cost-conscious operation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container about-content">
+        <div>
+          <p class="eyebrow">Portfolio demonstration</p>
+          <h2>Built to demonstrate practical AWS skills</h2>
+        </div>
+        <p>
+          SecureHome Cloud is an employment portfolio project demonstrating
+          frontend development, secure cloud architecture, API integration,
+          serverless computing, NoSQL data storage and technical documentation.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <aside
+    class="cart-panel"
+    id="cart-panel"
+    aria-hidden="true"
+    aria-labelledby="cart-title"
+  >
+    <div class="cart-header">
+      <div>
+        <p class="eyebrow">Your selection</p>
+        <h2 id="cart-title">Shopping cart</h2>
+      </div>
+      <button
+        class="close-cart"
+        id="close-cart"
+        type="button"
+        aria-label="Close shopping cart"
+      >
+        ×
+      </button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+      <p class="empty-cart-message">Your cart is currently empty.</p>
+    </div>
+
+    <div class="cart-summary">
+      <div>
+        <span>Total</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+      <button class="checkout-button" id="checkout-button" type="button" disabled>
+        Checkout coming soon
+      </button>
+    </div>
+  </aside>
+
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <strong>SecureHome Cloud</strong>
+        <p>A serverless AWS portfolio project.</p>
+      </div>
+      <p>&copy; <span id="current-year"></span> SecureHome Cloud</p>
+    </div>
+  </footer>
+</body>
+</html>
