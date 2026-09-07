@@ -1,6 +1,3 @@
-Next, open `app.js`, paste this code, and save with `Ctrl + S`:
-
-```javascript
 "use strict";
 
 const cartButton = document.querySelector("#cart-button");
@@ -205,5 +202,4 @@ document.addEventListener("keydown", (event) => {
 currentYear.textContent = new Date().getFullYear();
 
 renderCart();
-```
 
