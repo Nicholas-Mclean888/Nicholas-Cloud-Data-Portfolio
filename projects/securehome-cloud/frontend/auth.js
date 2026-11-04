@@ -5,11 +5,12 @@ const authConfig = Object.freeze({
   clientId: "159rdt49r5m58neqjuu33dpcpu",
   redirectUri: "https://d1khr8jeayvsgv.cloudfront.net/",
   signOutUri: "https://d1khr8jeayvsgv.cloudfront.net/",
-  scopes: "openid email"
+  scopes: "openid email securehome-api/orders.write"
 });
 
 const signInButton = document.querySelector("#sign-in-button");
 const signOutButton = document.querySelector("#sign-out-button");
+const myOrdersButton = document.querySelector("#my-orders-button");
 const authStatus = document.querySelector("#auth-status");
 
 const storageKeys = Object.freeze({
@@ -18,6 +19,21 @@ const storageKeys = Object.freeze({
   nonce: "securehome-oauth-nonce",
   session: "securehome-auth-session"
 });
+
+
+
+function getAccessToken() {
+  try {
+    const session = JSON.parse(
+      sessionStorage.getItem("securehome-auth-session") || "{}"
+    );
+
+    return session.accessToken || null;
+  } catch (error) {
+    console.error("Unable to read authentication session:", error);
+    return null;
+  }
+}
 
 function base64UrlEncode(value) {
   const bytes = value instanceof Uint8Array ? value : new Uint8Array(value);
@@ -77,6 +93,7 @@ function showSignedOut(message = "Not signed in") {
   authStatus.textContent = message;
   signInButton.hidden = false;
   signOutButton.hidden = true;
+  myOrdersButton.hidden = true;
 }
 
 function showSignedIn(idToken) {
@@ -86,6 +103,7 @@ function showSignedIn(idToken) {
     : "Signed in";
   signInButton.hidden = true;
   signOutButton.hidden = false;
+  myOrdersButton.hidden = false;
 }
 
 async function startSignIn() {

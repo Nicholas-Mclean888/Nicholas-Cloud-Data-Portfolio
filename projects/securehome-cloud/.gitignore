@@ -1,0 +1,25 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# AWS credentials and configuration
+.aws/
+*.pem
+*.key
+
+# Temporary and backup files
+*.log
+*.tmp
+*.bkp
+.$*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# VS Code local settings
+.vscode/

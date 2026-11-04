@@ -8,6 +8,10 @@ const cartItemsContainer = document.querySelector("#cart-items");
 const cartCount = document.querySelector("#cart-count");
 const cartTotal = document.querySelector("#cart-total");
 const checkoutButton = document.querySelector("#checkout-button");
+const ordersButton = document.querySelector("#my-orders-button");
+const ordersPanel = document.querySelector("#orders-panel");
+const closeOrdersButton = document.querySelector("#close-orders");
+const ordersList = document.querySelector("#orders-list");
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 const currentYear = document.querySelector("#current-year");
 
@@ -35,6 +39,10 @@ function formatCurrency(value) {
 }
 
 function openCart() {
+  // Close Order History before opening the shopping cart
+  ordersPanel.classList.remove("open");
+  ordersPanel.setAttribute("aria-hidden", "true");
+   // Open the shopping cart
   cartPanel.classList.add("open");
   cartPanel.setAttribute("aria-hidden", "false");
   cartButton.setAttribute("aria-expanded", "true");
@@ -50,6 +58,82 @@ function closeCart() {
   cartOverlay.hidden = true;
   document.body.classList.remove("cart-open");
   cartButton.focus();
+}
+
+function openOrders() {
+  // Close the shopping cart if it is open
+  cartPanel.classList.remove("open");
+  cartPanel.setAttribute("aria-hidden", "true");
+  cartButton.setAttribute("aria-expanded", "false");
+
+  // Open the Order History panel
+  ordersPanel.classList.add("open");
+  ordersPanel.setAttribute("aria-hidden", "false");
+
+  // Display the shared overlay
+  cartOverlay.hidden = false;
+  document.body.classList.add("cart-open");
+
+  closeOrdersButton.focus();
+}
+
+function closeOrders() {
+  ordersPanel.classList.remove("open");
+  ordersPanel.setAttribute("aria-hidden", "true");
+
+  cartOverlay.hidden = true;
+  document.body.classList.remove("cart-open");
+
+  ordersButton.focus();
+}
+
+function getProductName(productId) {
+  const productButton = Array.from(addToCartButtons).find(
+    (button) => button.dataset.productId === productId
+  );
+
+  return productButton
+    ? productButton.dataset.productName
+    : productId;
+}
+
+function renderOrders(orders) {
+  ordersList.replaceChildren();
+
+  if (orders.length === 0) {
+    const message = document.createElement("p");
+    message.textContent = "You haven't placed any orders yet.";
+    ordersList.appendChild(message);
+    return;
+  }
+
+  orders.forEach((order) => {
+    const orderCard = document.createElement("div");
+    orderCard.className = "order-card";
+
+    const heading = document.createElement("h3");
+   heading.textContent = `Order #${order.orderId.slice(0, 8).toUpperCase()}`;
+
+    const date = document.createElement("p");
+    date.textContent =
+      `Date: ${new Date(order.createdAt).toLocaleDateString("en-AU")}`;
+
+    const status = document.createElement("p");
+    status.textContent = `Status: ${order.status}`;
+
+    orderCard.append(heading, date, status);
+
+    (order.items || []).forEach((item) => {
+      const product = document.createElement("p");
+
+      product.textContent =
+        `Product: ${getProductName(item.productId)} — Quantity: ${item.quantity}`;
+
+      orderCard.appendChild(product);
+    });
+
+    ordersList.appendChild(orderCard);
+  });
 }
 
 function showNotification(message) {
@@ -69,9 +153,9 @@ function showNotification(message) {
   window.setTimeout(() => {
     notification.remove();
   }, 2500);
-}
+}function addToCart
 
-function addToCart(product) {
+(product) {
   const existingItem = cart.find((item) => item.id === product.id);
 
   if (existingItem) {
@@ -161,7 +245,7 @@ function renderCart() {
     cartItemsContainer.appendChild(emptyMessage);
 
     checkoutButton.disabled = true;
-    checkoutButton.textContent = "Checkout coming soon";
+    checkoutButton.textContent = "Proceed to checkout";
     return;
   }
 
@@ -187,15 +271,138 @@ addToCartButtons.forEach((button) => {
 
 cartButton.addEventListener("click", openCart);
 closeCartButton.addEventListener("click", closeCart);
-cartOverlay.addEventListener("click", closeCart);
-
-checkoutButton.addEventListener("click", () => {
-  showNotification("Secure checkout will be connected in a later project phase.");
+closeOrdersButton.addEventListener("click", closeOrders);
+cartOverlay.addEventListener("click", () => {
+  if (ordersPanel.classList.contains("open")) {
+    closeOrders();
+  } else if (cartPanel.classList.contains("open")) {
+    closeCart();
+  }
 });
 
+checkoutButton.addEventListener("click", async () => {
+  if (cart.length === 0) {
+    showNotification("Your cart is empty.");
+    return;
+  }
+
+  const accessToken = getAccessToken();
+
+  if (!accessToken) {
+    showNotification("Please sign in before checkout.");
+    return;
+  }
+
+  const items = cart.map((item) => ({
+    productId: item.id,
+    quantity: item.quantity
+  }));
+
+  checkoutButton.disabled = true;
+
+  try {
+    const response = await fetch(
+      "https://lc60ph0ihf.execute-api.ap-southeast-4.amazonaws.com/orders",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({ items })
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Order request failed: ${response.status}`);
+    }
+
+    const result = await response.json();
+    const orderId = result.order?.orderId;
+
+    console.log("Order created:", orderId);
+
+    showNotification(
+
+      orderId
+        ? `Order placed successfully! Order ID: ${orderId}`
+        : "Order placed successfully!"
+    );
+
+    cart.length = 0;
+    saveCart();
+    renderCart();
+
+  } catch (error) {
+    console.error("Checkout failed:", error);
+    showNotification("Checkout failed. Please try again.");
+  } finally {
+    checkoutButton.disabled = cart.length === 0;
+  }
+});
+
+
+
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && cartPanel.classList.contains("open")) {
-    closeCart();
+  if (event.key === "Escape") {
+    if (ordersPanel.classList.contains("open")) {
+      closeOrders();
+    } else if (cartPanel.classList.contains("open")) {
+      closeCart();
+    }
+  }
+});
+
+
+async function getCustomerOrders(accessToken) {
+  try {
+    const response = await fetch(
+      "https://lc60ph0ihf.execute-api.ap-southeast-4.amazonaws.com/orders",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Unable to retrieve orders: ${response.status}`
+      );
+    }
+
+    const result = await response.json();
+
+    return result.orders || [];
+
+  } catch (error) {
+    console.error("Order history failed:", error);
+    throw error;
+  }
+}
+
+ordersButton.addEventListener("click", async () => {
+  const accessToken = getAccessToken();
+
+  if (!accessToken) {
+    showNotification("Please sign in to view your orders.");
+    return;
+  }
+
+  try {
+    const orders = await getCustomerOrders(accessToken);
+    openOrders();
+    renderOrders(orders);
+    console.log("Customer orders:", orders);
+
+    showNotification(
+      `Successfully retrieved ${orders.length} order(s).`
+    );
+
+  } catch (error) {
+    console.error("Unable to display order history:", error);
+    showNotification("Unable to retrieve your orders.");
   }
 });
 

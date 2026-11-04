@@ -9,7 +9,9 @@
   >
   <title>SecureHome Cloud | Smart Security Products</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="auth.js" defer></script>
   <script src="app.js" defer></script>
+  
 </head>
 
 <body>
@@ -30,17 +32,34 @@
         <a href="#benefits">Why SecureHome?</a>
         <a href="#about">About</a>
       </nav>
+           <div class="header-actions">
+        <span class="auth-status" id="auth-status">Not signed in</span>
 
-      <button
-        class="cart-button"
-        id="cart-button"
-        type="button"
-        aria-controls="cart-panel"
-        aria-expanded="false"
-      >
-        Cart
-        <span class="cart-count" id="cart-count">0</span>
-      </button>
+        <button class="auth-button" id="sign-in-button" type="button">
+          Sign in
+        </button>
+
+        <button class="auth-button" id="my-orders-button" type="button" hidden>
+          My Orders
+        </button>
+
+        
+        <button class="auth-button" id="sign-out-button" type="button" hidden>
+          Sign out
+        </button>
+
+        <button
+          class="cart-button"
+          id="cart-button"
+          type="button"
+          aria-controls="cart-panel"
+          aria-expanded="false"
+        >
+          Cart
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+   
     </div>
   </header>
 
@@ -297,6 +316,34 @@
   </aside>
 
   <div class="cart-overlay" id="cart-overlay" hidden></div>
+
+<!-- Customer order history panel -->
+<aside
+  class="cart-panel"
+  id="orders-panel"
+  aria-hidden="true"
+  aria-labelledby="orders-title"
+>
+  <div class="cart-header">
+    <div>
+      <p class="eyebrow">Your purchases</p>
+      <h2 id="orders-title">My Order History</h2>
+    </div>
+
+    <button
+      class="close-cart"
+      id="close-orders"
+      type="button"
+      aria-label="Close order history"
+    >
+      ×
+    </button>
+  </div>
+
+  <div class="cart-items" id="orders-list">
+    <p>Your previous orders will appear here.</p>
+  </div>
+</aside>
 
   <footer class="site-footer">
     <div class="container footer-content">
