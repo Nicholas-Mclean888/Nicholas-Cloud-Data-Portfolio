@@ -1,96 +1,63 @@
-# Cloud, Data and IoT Portfolio
-
-Welcome to my technology portfolio. This repository showcases projects involving AWS cloud architecture, data analytics, machine learning, Internet of Things (IoT), Python and Node-RED.
+# My Cloud & IT Portfolio
 
 ## About Me
 
-I have completed a Diploma of Applied Technologies and achieved both the AWS Certified Cloud Practitioner and AWS Certified Solutions Architect – Associate certifications. I am continuing to develop practical skills in cloud architecture, data analytics, automation and secure application development.
+After completing my Diploma of Applied Technologies at Swinburne, I decided to continue developing my skills in cloud computing and IT.
 
+During my studies, I became particularly interested in how different technologies work together to solve practical problems. I enjoyed the hands-on side of the course, especially working with AWS, programming, data and system integration.
 
-This portfolio demonstrates my ability to design technical solutions, work with cloud services, analyse data and clearly document project outcomes.
+I have since achieved my **AWS Certified Cloud Practitioner** and **AWS Certified Solutions Architect – Associate** certifications.
 
-## Portfolio Projects
+I created this GitHub portfolio to put what I've learned into practice and demonstrate what I can build, rather than relying on qualifications alone.
 
-### 1. SecureHome Cloud
+I'm continuing to develop my technical skills and hope to move into a cloud or IT role where I can build on this experience.
 
-A serverless AWS e-commerce application for ordering home-security products.
+## My Projects
 
-**Technologies and services:**
+### 1. SecureHome Cloud — AWS Serverless E-Commerce Application
 
-* Amazon S3 and CloudFront
-* Amazon Cognito
-* Amazon API Gateway
-* AWS Lambda
-* Amazon DynamoDB
-* Amazon SQS and SNS
-* AWS Step Functions
-* AWS KMS, IAM and Shield
-* Amazon CloudWatch and AWS Budgets
+This is my first major AWS portfolio project.
 
-**Project status:** In development
+I built a working online demonstration store for home-security products. Customers can create an account, sign in, add products to a shopping cart, place orders and view their order history.
 
-### 2. Smart Data Centre Monitoring
+I used several AWS services, including:
 
-An IoT monitoring system that simulates and analyses environmental and equipment data from five data-centre racks.
+- Amazon S3 and CloudFront for hosting
+- Amazon Cognito for authentication
+- API Gateway and AWS Lambda for the backend
+- Amazon DynamoDB for storing orders
+- Amazon CloudWatch for logging and troubleshooting
 
-**Technologies and features:**
+One of the most useful parts of this project was learning how to troubleshoot problems. I encountered issues with authentication, API permissions, database records and frontend behaviour, and worked through them until the application was functioning.
 
-* Python sensor simulator
-* MQTT messaging
-* Node-RED workflows and dashboards
-* AWS IoT Core
-* Temperature, humidity, vibration, smoke, airflow and power monitoring
-* Sensor-data validation and anomaly detection
-* Risk assessment and automated cooling controls
+**[View SecureHome Cloud Project](projects/securehome-cloud/)**
 
-**Project status:** Portfolio documentation in progress
+**[Open the Live Application](https://d1khr8jeayvsgv.cloudfront.net/)**
 
-### 3. API-to-Power BI Analytics
+### 2. API to Power BI — Planned
 
-A data analytics project that retrieves information from an API, transforms the data and presents business insights through an interactive Power BI dashboard.
+I plan to develop a project that retrieves data from an API, processes it and presents the results using Microsoft Power BI.
 
-**Planned technologies:**
+### 3. Machine Learning — Planned
 
-* REST API
-* Python or Power Query
-* Power BI
-* Data cleaning and transformation
-* Data visualisation and reporting
+I intend to explore machine learning using currency price data, including data preparation, modelling and evaluating predictions.
 
-**Project status:** Planned
+### 4. Smart Data Centre Monitoring
 
-### 4. Machine-Learning Project
+During my studies, I worked on a cyber-physical systems project involving simulated data-centre sensors, MQTT messaging, Node-RED dashboards and automated alerts.
 
-A machine-learning project demonstrating data preparation, model development, evaluation and visualisation.
-
-**Planned technologies:**
-
-* Python
-* Pandas and NumPy
-* Scikit-learn
-* Matplotlib or Seaborn
-* Jupyter Notebook
-
-**Project status:** Planned
+I plan to document this project separately in my portfolio.
 
 ## Technical Skills
 
-* AWS cloud services
-* Cloud architecture and security
-* Python
-* MQTT and IoT
-* Node-RED
-* Power BI
-* Data validation and visualisation
-* Machine-learning fundamentals
-* Git and GitHub
+Some of the technologies I've worked with include:
 
-## Certifications and Education
+- **Cloud:** AWS S3, CloudFront, Lambda, API Gateway, Cognito, DynamoDB and CloudWatch
+- **Programming:** JavaScript, Python, HTML and CSS
+- **Development tools:** Git, GitHub and Visual Studio Code
+- **Data and integration:** MQTT, Node-RED, APIs and data visualisation
+- **Security:** IAM, authentication, authorization and cloud security fundamentals
 
-* AWS Certified Cloud Practitioner
-* Diploma of Applied Technologies
-* AWS Certified Solutions Architect – Associate
+## What I'm Working Towards
 
-## Portfolio Development
-
-This repository will be updated as each project is developed and documented. Each project will include its architecture, implementation process, screenshots, technical decisions and lessons learned.
+My aim is to continue building practical projects, improving

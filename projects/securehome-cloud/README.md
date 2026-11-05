@@ -147,3 +147,11 @@ Possible future improvements include payment processing, order-confirmation noti
 ## Project Summary
 
 SecureHome Cloud is part of my cloud and data technology portfolio. Building it has given me hands-on experience designing, deploying, securing and troubleshooting an AWS serverless application.
+
+## Project Reports
+
+I have documented the development of SecureHome Cloud in two reports:
+
+- [Technical Report](reports/SecureHome-Cloud-Technical-Report.pdf) — A detailed account of the AWS architecture, implementation, testing, troubleshooting and lessons learned.
+
+- [Project Case Study](reports/SecureHome-Cloud-Case-Study.pdf) — A shorter overview of the project, the challenges I encountered and the skills I developed.
