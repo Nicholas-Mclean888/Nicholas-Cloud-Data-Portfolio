@@ -137,6 +137,12 @@ weather observations collected by the Python script.
 
 ## Power BI Dashboard
 
+### Dashboard Screenshot
+
+![Melbourne Weather Analytics Power BI Dashboard](Melbourne_Weather_Dashboard.png)
+
+*My Power BI dashboard showing Melbourne weather observations, historical trends and data freshness.*
+
 The Melbourne Weather Analytics dashboard was developed
 using Microsoft Power BI Desktop.
 
