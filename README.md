@@ -34,10 +34,30 @@ One of the most useful parts of this project was learning how to troubleshoot pr
 
 **[Open the Live Application](https://d1khr8jeayvsgv.cloudfront.net/)**
 
-### 2. API to Power BI — Planned
+### 2. Melbourne Weather Analytics — Python, SQL Server & Power BI
 
-I plan to develop a project that retrieves data from an API, processes it and presents the results using Microsoft Power BI.
+I developed an end-to-end weather data analytics solution that retrieves live Melbourne weather observations from the OpenWeatherMap API, processes the data using Python and stores the results in Microsoft SQL Server and CSV files.
 
+I then built an interactive Microsoft Power BI dashboard to analyse the collected weather data.
+
+**Technologies used:**
+- Python, Pandas, Requests and PyODBC
+- OpenWeatherMap REST API
+- Microsoft SQL Server Express
+- Microsoft Power BI and DAX
+- Git and GitHub
+
+**Key features:**
+- Automated weather data collection every five minutes while the Python collector is running
+- SQL Server database integration and CSV export
+- Interactive Power BI dashboard with temperature, humidity and wind measurements
+- Historical weather trends and date filtering
+- Data freshness monitoring using DAX
+- System architecture documentation and SQL testing scripts
+
+This project helped me develop practical experience integrating APIs, Python, relational databases and business intelligence tools into a complete data pipeline.
+
+**[View Melbourne Weather Analytics Project](projects/melbourne-weather-analytics/)**
 ### 3. Machine Learning — Planned
 
 I intend to explore machine learning using currency price data, including data preparation, modelling and evaluating predictions.
