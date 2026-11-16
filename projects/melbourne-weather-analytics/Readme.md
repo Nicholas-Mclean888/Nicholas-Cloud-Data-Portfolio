@@ -363,3 +363,12 @@ storage and Power BI reporting.
 
 Further enhancements are planned as future development
 opportunities.
+
+
+## Project Report
+
+I've also written a report explaining how I built this project, the problems I encountered, how I solved them and what I learned along the way.
+
+**[Read My Project Report (PDF)](Melbourne_Weather_Report.pdf)**
+
+**[Download the Word Version](Melbourne_Weather_Report.docx)**
